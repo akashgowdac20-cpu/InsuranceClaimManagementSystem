@@ -13,13 +13,16 @@ app = FastAPI(title="Insurance Claim Management System")
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://insurance-claim-management-frontend.onrender.com",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Serve uploaded images
+# Serve uploaded files
 app.mount(
     "/uploads",
     StaticFiles(directory="uploads"),
